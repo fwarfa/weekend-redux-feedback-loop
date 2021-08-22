@@ -1,0 +1,46 @@
+import { useState } from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
+function Feeling () {
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const [feeling, setFeeling] = useState({feelingRating: ''});
+
+    const handleInputChange = (event) => {
+        setFeeling({feelingRating: event.target.value})
+    } // end handleInputChange
+
+    const onSubmit = (event) => {
+        event.preventDefault(event);
+
+        dispatch({
+            type: 'SET_FEELING',
+            payload: feeling
+        });
+
+        setFeeling({feelingRating: ''});
+        history.push('/2');
+
+    } // end handleClick
+
+    return (
+        <>
+            <h1>How are you feeling today?</h1>
+            <form onSubmit={onSubmit}>
+                <label for="feeling">Feeling?</label>
+                <input 
+                    name="feeling"
+                    type="number" 
+                    placeholder="0"
+                    value={feeling.feelingRating}
+                    onChange={handleInputChange}
+                    required
+                />
+                <button type="submit">NEXT</button>
+            </form>
+        </>
+    );
+}
+
+export default Feeling;
