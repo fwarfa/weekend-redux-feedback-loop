@@ -5,6 +5,21 @@ import axios from 'axios';
 
 function Review () {
     const feedbackInfo = useSelector(store => store.feedbackReducer);
+    const history = useHistory();
+
+    if (window.history && history.pushState) {
+        addEventListener('load', function() {
+            history.pushState(null, null, null); // creates new history entry with same URL
+            // addEventListener('popstate', function() {
+            //     var stayOnPage = confirm("Would you like to save this draft?");
+            //     if (!stayOnPage) {
+            //         history.back() 
+            //     } else {
+            //         history.pushState(null, null, null);
+            //     }
+            // });    
+        });
+    }
 
     const onSubmit = (event) => {
         event.preventDefault(event);
@@ -26,6 +41,8 @@ function Review () {
         }).catch(err => {
             console.log('POST /feedback failed', err);
         });
+
+        history.push('/6');
     }
     return (
         <>

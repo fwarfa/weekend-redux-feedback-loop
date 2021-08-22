@@ -8,7 +8,7 @@ import Understanding from './Understanding';
 import Supported from './Supported';
 import Comments from './Comments';
 import Review from './Review';
-
+import Success from './Success';
 
 function App() {
 
@@ -33,6 +33,9 @@ function App() {
         </Route>
         <Route path="/5">
           <Review />
+        </Route>
+        <Route path="/6">
+          <Success />
         </Route>
       </Router>
     </div>
