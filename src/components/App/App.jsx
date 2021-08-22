@@ -7,6 +7,8 @@ import Feeling from './Feeling';
 import Understanding from './Understanding';
 import Supported from './Supported';
 import Comments from './Comments';
+import Review from './Review';
+
 
 function App() {
 
@@ -28,6 +30,9 @@ function App() {
         </Route>
         <Route path="/4">
           <Comments />
+        </Route>
+        <Route path="/5">
+          <Review />
         </Route>
       </Router>
     </div>

@@ -21,7 +21,7 @@ function Supported () {
         });
 
         setSupport({supportRating: ''});
-        history.push('/1');
+        history.push('/4');
 
     } // end handleClick
     return (

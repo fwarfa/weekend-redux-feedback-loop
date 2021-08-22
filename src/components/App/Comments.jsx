@@ -5,10 +5,10 @@ import { useHistory } from 'react-router-dom';
 function Comments () {
     const dispatch = useDispatch();
     const history = useHistory();
-    const [commentField, setCommentField] = useState('');
+    const [comment, setComment] = useState({commentField: ''});
 
     const handleInputChange = (event) => {
-        setCommentField(event.target.value)
+        setComment({commentField: event.target.value})
     } // end handleInputChange
 
     const onSubmit = (event) => {
@@ -16,11 +16,11 @@ function Comments () {
 
         dispatch({
             type: 'SET_FEELING',
-            payload: commentField
+            payload: comment
         });
 
-        setCommentField('');
-        history.push('/1');
+        setComment({commentField: ''});
+        history.push('/5');
 
     } // end handleClick
 
@@ -33,7 +33,7 @@ function Comments () {
                     name="comments"
                     type="text" 
                     placeholder="Leave a comment!"
-                    value={commentField}
+                    value={comment.commentField}
                     onChange={handleInputChange}
                 />
                 <button type="submit">NEXT</button>
@@ -41,18 +41,5 @@ function Comments () {
         </>
     );
 }
-/*
-            <form onSubmit={onSubmit}>
-                <label for="feeling">Feeling?</label>
-                <input 
-                    name="feeling"
-                    type="number" 
-                    placeholder="0"
-                    value={feelingRating}
-                    onChange={handleInputChange}
-                    required
-                />
-                <button type="submit">NEXT</button>
-            </form>
-*/
+
 export default Comments;
