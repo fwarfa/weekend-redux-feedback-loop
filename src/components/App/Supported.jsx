@@ -12,6 +12,10 @@ function Supported () {
         setSupport({supportRating: event.target.value})
     } // end handleInputChange
 
+    const goBack = () => {
+        history.goBack();
+    }
+
     const onSubmit = (event) => {
         event.preventDefault(event);
 
@@ -27,6 +31,7 @@ function Supported () {
     return (
         <>
             <h1>How well are you being supported?</h1>
+            <button value="Go back!" onClick={goBack}> BACK </button>
             <form onSubmit={onSubmit}>
                 <label for="supported">Support?</label>
                 <input 

@@ -11,6 +11,10 @@ function Comments () {
         setComment({commentField: event.target.value})
     } // end handleInputChange
 
+    const goBack = () => {
+        history.goBack();
+    }
+
     const onSubmit = (event) => {
         event.preventDefault(event);
 
@@ -27,6 +31,7 @@ function Comments () {
     return (
         <>
             <h1>Any comments you want to leave?</h1>
+            <button value="Go back!" onClick={goBack}> BACK </button>
             <form onSubmit={onSubmit}>
                 <label for="comments">Comments</label>
                 <input 

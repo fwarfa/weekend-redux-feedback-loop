@@ -7,18 +7,8 @@ function Review () {
     const feedbackInfo = useSelector(store => store.feedbackReducer);
     const history = useHistory();
 
-    if (window.history && history.pushState) {
-        addEventListener('load', function() {
-            history.pushState(null, null, null); // creates new history entry with same URL
-            // addEventListener('popstate', function() {
-            //     var stayOnPage = confirm("Would you like to save this draft?");
-            //     if (!stayOnPage) {
-            //         history.back() 
-            //     } else {
-            //         history.pushState(null, null, null);
-            //     }
-            // });    
-        });
+    const goBack = () => {
+        history.goBack();
     }
 
     const onSubmit = (event) => {
@@ -47,6 +37,7 @@ function Review () {
     return (
         <>
             <h1>Review Your Feedback</h1>
+            <button value="Go back!" onClick={goBack}> BACK </button>
             <p>Feeling: {feedbackInfo[0].feelingRating}</p>
             <p>Understanding: {feedbackInfo[1].understandingRating}</p>
             <p>Support: {feedbackInfo[2].supportRating}</p>

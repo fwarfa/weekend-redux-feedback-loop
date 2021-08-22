@@ -11,6 +11,10 @@ function Understanding () {
         setUnderstanding({understandingRating: event.target.value})
     } // end handleInputChange
 
+    const goBack = () => {
+        history.goBack();
+    }
+
     const onSubmit = (event) => {
         event.preventDefault(event);
         
@@ -27,6 +31,7 @@ function Understanding () {
     return (
         <>
             <h1>How well are you understanding the content?</h1>
+            <button value="Go back!" onClick={goBack}> BACK </button>
             <form onSubmit={onSubmit}>
                 <label for="understanding">Understanding?</label>
                 <input 
