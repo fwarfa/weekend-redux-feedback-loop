@@ -1,4 +1,3 @@
-import { Input } from 'postcss';
 import { useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -14,7 +13,7 @@ function Feeling () {
 
     const onSubmit = (event) => {
         event.preventDefault(event);
-        
+
         dispatch({
             type: 'SET_FEELING',
             payload: feelingRating
