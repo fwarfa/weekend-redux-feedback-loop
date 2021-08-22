@@ -5,6 +5,7 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
 import Feeling from './Feeling';
 import Understanding from './Understanding';
+import Supported from './Supported';
 
 function App() {
 
@@ -15,11 +16,14 @@ function App() {
         <h4>Don't forget it!</h4>
       </header>
       <Router>
-        <Route path="/">
+        <Route path="/1">
           <Feeling />
         </Route>
-        <Route path="/1">
+        <Route path="/2">
           <Understanding />
+        </Route>
+        <Route path="/3">
+          <Supported />
         </Route>
       </Router>
     </div>
