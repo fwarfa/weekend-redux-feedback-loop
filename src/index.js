@@ -13,7 +13,7 @@ import logger from 'redux-logger';
 const feedbackReducer = (state = [], action) => {
     // Feedback added 
     switch (action.type) {
-        case 'SET_FEEDBACK':
+        case 'SET_FEELING':
             return action.payload
         default:
     }

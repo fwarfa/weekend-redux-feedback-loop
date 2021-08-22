@@ -17,4 +17,18 @@ function Supported () {
     );
 }
 
+/*
+            <form onSubmit={onSubmit}>
+                <label for="feeling">Feeling?</label>
+                <input 
+                    name="feeling"
+                    type="number" 
+                    placeholder="0"
+                    value={feelingRating}
+                    onChange={handleInputChange}
+                    required
+                />
+                <button type="submit">NEXT</button>
+            </form>
+*/
 export default Supported;
