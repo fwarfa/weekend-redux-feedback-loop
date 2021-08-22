@@ -7,8 +7,23 @@ function Review () {
 
     const onSubmit = (event) => {
         event.preventDefault(event);
-        console.log('sumbit clicked!');
+        
         // POST Function goes here
+
+                axios({
+            method: 'POST',
+            url: '/api/pizza',
+            data: newPizza
+        }).then(response => {
+            console.log('POST /api/pizza', response);
+
+            dispatch ({
+                type: 'CLEAR_CART'
+            });
+
+        }).catch(err => {
+            console.log('POST /api/pizza failed', err);
+        });
     }
     return (
         <>
@@ -17,7 +32,7 @@ function Review () {
             <p>Understanding: {feedbackInfo[1].understandingRating}</p>
             <p>Support: {feedbackInfo[2].supportRating}</p>
             <p>Comment: {feedbackInfo[3].commentField}</p>
-            
+
             <form onSubmit={onSubmit}>
                 <button type="submit">SUBMIT</button>
             </form>
