@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 function Review () {
     const feedbackInfo = useSelector(store => store.feedbackReducer);
@@ -10,19 +11,14 @@ function Review () {
         
         // POST Function goes here
 
-                axios({
+            axios({
             method: 'POST',
-            url: '/api/pizza',
-            data: newPizza
+            url: '/feedback',
+            data: [...feedbackInfo]
         }).then(response => {
-            console.log('POST /api/pizza', response);
-
-            dispatch ({
-                type: 'CLEAR_CART'
-            });
-
+            console.log('POST /feedback', response);
         }).catch(err => {
-            console.log('POST /api/pizza failed', err);
+            console.log('POST /feedback failed', err);
         });
     }
     return (
