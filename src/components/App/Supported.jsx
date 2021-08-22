@@ -6,22 +6,22 @@ function Supported () {
 
     const dispatch = useDispatch();
     const history = useHistory();
-    const [supportRating, setSupportRating] = useState('');
+    const [support, setSupport] = useState({supportRating: ''});
 
     const handleInputChange = (event) => {
-        setSupportRating(event.target.value)
+        setSupport({supportRating: event.target.value})
     } // end handleInputChange
 
     const onSubmit = (event) => {
         event.preventDefault(event);
 
         dispatch({
-            type: 'SET_FEELING',
-            payload: supportRating
+            type: 'SET_SUPPORT',
+            payload: support
         });
 
-        setSupportRating('');
-        history.push('/4');
+        setSupport({supportRating: ''});
+        history.push('/1');
 
     } // end handleClick
     return (
@@ -33,7 +33,7 @@ function Supported () {
                     name="supported"
                     type="number" 
                     placeholder="0"
-                    value={supportRating}
+                    value={support.supportRating}
                     onChange={handleInputChange}
                     required
                 />
@@ -43,18 +43,4 @@ function Supported () {
     );
 }
 
-/*
-            <form onSubmit={onSubmit}>
-                <label for="feeling">Feeling?</label>
-                <input 
-                    name="feeling"
-                    type="number" 
-                    placeholder="0"
-                    value={feelingRating}
-                    onChange={handleInputChange}
-                    required
-                />
-                <button type="submit">NEXT</button>
-            </form>
-*/
 export default Supported;
