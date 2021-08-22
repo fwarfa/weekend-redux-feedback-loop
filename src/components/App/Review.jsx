@@ -10,11 +10,17 @@ function Review () {
         event.preventDefault(event);
         
         // POST Function goes here
+        let newFeedback = {
+            feelingRating: feedbackInfo[0].feelingRating,
+            understandingRating: feedbackInfo[1].understandingRating,
+            supportRating: feedbackInfo[2].supportRating,
+            commentField: feedbackInfo[3].commentField
+        };
 
             axios({
             method: 'POST',
             url: '/feedback',
-            data: [...feedbackInfo]
+            data: newFeedback
         }).then(response => {
             console.log('POST /feedback', response);
         }).catch(err => {
