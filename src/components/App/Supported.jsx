@@ -6,13 +6,16 @@ function Supported () {
 
     const dispatch = useDispatch();
     const history = useHistory();
-    const [support, setSupport] = useState({supportRating: ''});
+    const [support, setSupport] = useState('');
 
     const handleInputChange = (event) => {
-        setSupport({supportRating: event.target.value})
+        setSupport(event.target.value)
     } // end handleInputChange
 
     const goBack = () => {
+        dispatch({
+            type: 'CLEAR_PREVIOUS'
+        });
         history.goBack();
     }
 
@@ -24,7 +27,7 @@ function Supported () {
             payload: support
         });
 
-        setSupport({supportRating: ''});
+        setSupport('');
         history.push('/4');
 
     } // end handleClick
@@ -38,7 +41,7 @@ function Supported () {
                     name="supported"
                     type="number" 
                     placeholder="0"
-                    value={support.supportRating}
+                    value={support}
                     onChange={handleInputChange}
                     required
                 />

@@ -5,10 +5,10 @@ import { useHistory } from 'react-router-dom';
 function Feeling () {
     const dispatch = useDispatch();
     const history = useHistory();
-    const [feeling, setFeeling] = useState({feelingRating: ''});
+    const [feeling, setFeeling] = useState('');
 
     const handleInputChange = (event) => {
-        setFeeling({feelingRating: event.target.value})
+        setFeeling(event.target.value)
     } // end handleInputChange
 
     const onSubmit = (event) => {
@@ -19,7 +19,7 @@ function Feeling () {
             payload: feeling
         });
 
-        setFeeling({feelingRating: ''});
+        setFeeling('');
         history.push('/2');
 
     } // end handleClick
@@ -33,7 +33,7 @@ function Feeling () {
                     name="feeling"
                     type="number" 
                     placeholder="0"
-                    value={feeling.feelingRating}
+                    value={feeling}
                     onChange={handleInputChange}
                     required
                 />
