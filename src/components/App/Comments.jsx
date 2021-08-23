@@ -5,10 +5,10 @@ import { useHistory } from 'react-router-dom';
 function Comments () {
     const dispatch = useDispatch();
     const history = useHistory();
-    const [comment, setComment] = useState({commentField: ''});
+    const [comment, setComment] = useState('');
 
     const handleInputChange = (event) => {
-        setComment({commentField: event.target.value})
+        setComment(event.target.value)
     } // end handleInputChange
 
     const goBack = () => {
@@ -19,11 +19,11 @@ function Comments () {
         event.preventDefault(event);
 
         dispatch({
-            type: 'SET_FEELING',
+            type: 'SET_COMMENT',
             payload: comment
         });
 
-        setComment({commentField: ''});
+        setComment('');
         history.push('/5');
 
     } // end handleClick
@@ -38,7 +38,7 @@ function Comments () {
                     name="comments"
                     type="text" 
                     placeholder="Leave a comment!"
-                    value={comment.commentField}
+                    value={comment}
                     onChange={handleInputChange}
                 />
                 <button type="submit">NEXT</button>

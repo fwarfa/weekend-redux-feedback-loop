@@ -14,11 +14,21 @@ const feedbackReducer = (state = [], action) => {
     // Feedback added 
     switch (action.type) {
         case 'SET_FEELING':
-            return [...state, action.payload]
+            return [action.payload]
         case 'SET_UNDERSTANDING':
             return [...state, action.payload]
         case 'SET_SUPPORT':
             return [...state, action.payload]
+        case 'SET_COMMENT':
+            return [...state, action.payload]
+        case 'CLEAR_PREVIOUS':
+            if (state === []) {
+                return [];
+            }
+            else {
+                state.pop();
+                return state;
+            }
         case 'CLEAR_FEEDBACK':
             return []
         default:

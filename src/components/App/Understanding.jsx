@@ -5,13 +5,16 @@ import { useHistory } from 'react-router-dom';
 function Understanding () {
     const dispatch = useDispatch();
     const history = useHistory();
-    const [understanding, setUnderstanding] = useState({understandingRating: ''});
+    const [understanding, setUnderstanding] = useState('');
 
     const handleInputChange = (event) => {
-        setUnderstanding({understandingRating: event.target.value})
+        setUnderstanding(event.target.value)
     } // end handleInputChange
 
     const goBack = () => {
+        dispatch({
+            type: 'CLEAR_PREVIOUS'
+        });
         history.goBack();
     }
 
@@ -23,7 +26,7 @@ function Understanding () {
             payload: understanding
         });
 
-        setUnderstanding({understandingRating: ''});
+        setUnderstanding('');
         history.push('/3');
 
     } // end handleClick
@@ -38,7 +41,7 @@ function Understanding () {
                     name="undertanding"
                     type="number" 
                     placeholder="0"
-                    value={understanding.understandingRating}
+                    value={understanding}
                     onChange={handleInputChange}
                     required
                 />
