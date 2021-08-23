@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { Button } from '@material-ui/core';
 
 function Understanding () {
     const dispatch = useDispatch();
@@ -45,7 +46,7 @@ function Understanding () {
                     onChange={handleInputChange}
                     required
                 />
-                <button type="submit">NEXT</button>
+                <Button variant="contained" type="submit">NEXT</Button>
             </form>
         </>
     );

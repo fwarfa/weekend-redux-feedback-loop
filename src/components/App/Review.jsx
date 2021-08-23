@@ -2,6 +2,8 @@ import { useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import { Button } from '@material-ui/core';
+
 
 function Review () {
     const feedbackInfo = useSelector(store => store.feedbackReducer);
@@ -50,7 +52,7 @@ function Review () {
             <p>Comment: {feedbackInfo[3]}</p>
 
             <form onSubmit={onSubmit}>
-                <button type="submit">SUBMIT</button>
+                <Button color="success" variant="contained" type="submit">SUBMIT</Button>
             </form>
         </>
     );
