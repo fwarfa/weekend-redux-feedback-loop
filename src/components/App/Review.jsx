@@ -55,22 +55,5 @@ function Review () {
         </>
     );
 }
-/*
-        {feedbackInfo.map(feedback => {
-            return(
-                <div>
-                    // <h3>{feedback.understandingRating}</h3>
-                    // <h3>Understaning: {feedback.understandingRating}</h3>
-                    // <h3>Support: {feedback.supportRating}</h3>
-                    // <h3>Comments: {feedback.commentField}</h3> 
-                </div>
-            );
-        })}
 
-      <ul>
-        {products.map((product, i) => {
-          return <ProductListItem key={i} product={product} />;
-        })}
-      </ul>
-*/
 export default Review;
