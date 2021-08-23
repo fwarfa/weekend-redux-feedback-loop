@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { Button } from '@material-ui/core';
 
 function Comments () {
     const dispatch = useDispatch();
@@ -41,7 +42,7 @@ function Comments () {
                     value={comment}
                     onChange={handleInputChange}
                 />
-                <button type="submit">NEXT</button>
+                <Button variant="contained" type="submit">NEXT</Button>
             </form>
         </>
     );
